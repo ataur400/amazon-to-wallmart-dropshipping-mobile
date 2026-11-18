@@ -1,0 +1,89 @@
+/* Android edition: same design as the desktop app, laid out for a phone screen. */
+html.aw-mobile { -webkit-text-size-adjust: 100%; }
+html.aw-mobile body {
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: hidden;
+}
+html.aw-mobile * { -webkit-touch-callout: none; }
+html.aw-mobile input, html.aw-mobile select, html.aw-mobile textarea { font-size: 16px; } /* no zoom-on-focus */
+html.aw-mobile button, html.aw-mobile select, html.aw-mobile input[type=text], html.aw-mobile input[type=number] { min-height: 44px; }
+html.aw-mobile .toTop, html.aw-mobile #toTop { bottom: calc(18px + env(safe-area-inset-bottom, 0px)); }
+
+/* header */
+html.aw-mobile .appbar { margin-top: 8px; }
+html.aw-mobile .sub { font-size: 13px; line-height: 1.5; }
+html.aw-mobile .head-top { flex-wrap: wrap; gap: 8px; }
+html.aw-mobile .head-meta { width: 100%; }
+html.aw-mobile .flow { flex-wrap: wrap; gap: 8px; }
+
+/* forms and action bar */
+html.aw-mobile .controls { gap: 14px; }
+html.aw-mobile .actionbar { position: static; flex-direction: column; align-items: stretch; gap: 12px; }
+html.aw-mobile .actionbar .fixed { flex-wrap: wrap; }
+html.aw-mobile .actionbar .buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; width: 100%; }
+html.aw-mobile .actionbar .buttons button { width: 100%; justify-content: center; }
+html.aw-mobile #start { grid-column: 1 / -1; }
+html.aw-mobile .feeds { grid-template-columns: 1fr; }
+html.aw-mobile .feed { max-height: 260px; }
+
+/* results table -> one card per product */
+@media (max-width: 900px) {
+  html.aw-mobile .tablewrap { overflow: visible; background: transparent; border: 0; box-shadow: none; }
+  html.aw-mobile table { min-width: 0 !important; width: 100%; display: block; }
+  html.aw-mobile thead { display: none; }
+  html.aw-mobile tbody { display: block; }
+  html.aw-mobile tbody tr {
+    display: block; margin: 0 0 14px; background: var(--card, #fff); border: 1px solid var(--line, #e3e9f3);
+    border-radius: 16px; box-shadow: var(--sh1, 0 2px 8px rgba(20, 40, 80, .08)); overflow: hidden;
+  }
+  html.aw-mobile tbody tr:hover { background: var(--card, #fff); }
+  html.aw-mobile td {
+    display: block; min-width: 0 !important; white-space: normal !important;
+    padding: 12px 16px; border-bottom: 1px solid var(--line, #e3e9f3);
+  }
+  html.aw-mobile tbody tr td:last-child { border-bottom: 0; }
+  html.aw-mobile td:not(:first-child)::before {
+    display: block; margin-bottom: 6px; font-size: 10px; font-weight: 800; letter-spacing: .08em;
+    text-transform: uppercase; color: var(--muted, #6b7a90);
+  }
+  html.aw-mobile td:nth-child(2)::before { content: "Amazon cost"; }
+  html.aw-mobile td:nth-child(3)::before { content: "Walmart sell price"; }
+  html.aw-mobile td:nth-child(4)::before { content: "Walmart fees (WFS total cost)"; }
+  html.aw-mobile td:nth-child(5)::before { content: "Net profit"; }
+  html.aw-mobile td:nth-child(6)::before { content: "Monthly sales"; }
+  html.aw-mobile td:nth-child(7)::before { content: "Listing"; }
+  html.aw-mobile .prod { flex-wrap: nowrap; }
+  html.aw-mobile .seller-breakdown { min-width: 0 !important; }
+  html.aw-mobile .listing { min-width: 0 !important; }
+}
+
+/* history drawer: full screen on phones */
+html.aw-mobile .hist-drawer { width: 100% !important; max-width: 100% !important; border-radius: 0; }
+html.aw-mobile .hist-head { padding-top: calc(14px + env(safe-area-inset-top, 0px)); }
+
+/* Tools sheet */
+#awToolsOverlay {
+  position: fixed; inset: 0; z-index: 99999; background: rgba(15, 25, 45, .5);
+  display: flex; align-items: flex-end; justify-content: center;
+}
+#awToolsOverlay[hidden] { display: none; }
+#awToolsOverlay .aw-sheet {
+  width: 100%; max-width: 560px; max-height: 88vh; overflow-y: auto; background: #fff;
+  border-radius: 22px 22px 0 0; padding: 16px 16px calc(18px + env(safe-area-inset-bottom, 0px));
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, .25);
+}
+#awToolsOverlay .aw-sheet-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 8px; }
+#awToolsOverlay h2 { margin: 0; font-size: 18px; color: #12305f; }
+#awToolsClose { border: 0; background: #eef2f9; border-radius: 12px; width: 40px; height: 40px; font-size: 16px; cursor: pointer; }
+#awToolsOverlay .aw-item {
+  display: flex; align-items: center; justify-content: space-between; gap: 12px; width: 100%; text-align: left;
+  background: #f6f8fc; border: 1px solid #e3e9f3; border-radius: 14px; padding: 13px 14px; margin: 8px 0;
+  font: inherit; color: #12305f; cursor: pointer;
+}
+#awToolsOverlay .aw-item b { display: block; font-size: 14px; }
+#awToolsOverlay .aw-item small { display: block; margin-top: 3px; font-size: 12px; color: #61708a; font-weight: 500; }
+#awToolsOverlay .aw-item.danger b { color: #b42329; }
+#awToolsOverlay .aw-check input { width: 22px; height: 22px; flex: none; }
+#awToolsOverlay .aw-sheet-note { margin: 10px 4px 0; font-size: 12px; color: #61708a; }

@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="color-scheme" content="light" />
+  <title>Amazon to Wallmart Product Finder Dropshipping Tool</title>
+  <link rel="icon" type="image/png" href="icons/icon32.png" />
+  <link rel="stylesheet" href="app.css" />
+  <link rel="stylesheet" href="auth.css" />
+</head>
+<body>
+  <header class="appbar">
+    <span class="orb orb1" aria-hidden="true"></span>
+    <span class="orb orb2" aria-hidden="true"></span>
+    <div class="appbar-in">
+      <div class="brand">
+        <div class="logochip"><img class="logo" src="icons/logo.png" alt="AW logo" /></div>
+        <div class="head-text">
+          <h1><span class="t-main">Amazon <em class="t-to">to</em> Wallmart</span> <span class="t-grad">Product Finder</span><span class="t-tag">Dropshipping Tool</span></h1>
+          <p class="sub">Cheaper on Amazon, pricier on Walmart. Finds small products where the net profit, after Walmart referral fee, WFS fee and inbound cost, beats your target over the Amazon price.</p>
+        </div>
+      </div>
+      <div class="head-meta">
+        <div class="head-top">
+          <button type="button" id="historyBtn" class="histbtn" aria-haspopup="dialog" title="View your search history (last 3 days)">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 7v5l3 2"/></svg>
+            <span>History</span><b id="histCount" class="hcount">0</b>
+          </button>
+          <span class="ver" id="ver">v1.8.0</span>
+        </div>
+        <span class="clock" id="clock">--</span>
+      </div>
+    </div>
+    <div class="flow" aria-hidden="true">
+      <span class="flow-step s-amz"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M3 4h2.5l2.2 11h10.6l2-8H6.4"/></svg>Buy low on Amazon</span>
+      <span class="flow-line"></span>
+      <span class="flow-step s-wal"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v5M12 16v5M4.9 5.6l3.5 3.5M15.6 15.1l3.5 3.5M3 12h5M16 12h5M4.9 18.4l3.5-3.5M15.6 8.9l3.5-3.5"/></svg>Sell high on Walmart</span>
+      <span class="flow-line"></span>
+      <span class="flow-step s-win"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg>Keep the net profit</span>
+      <div class="credit">
+        <span class="cr-by"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l2.6 5.6 6.1.7-4.5 4.2 1.2 6L12 16.5 6.6 19.5l1.2-6L3.3 9.3l6.1-.7z"/></svg>Create By_</span>
+        <b class="cr-name">Engr Ataur Rahman</b>
+        <span class="cr-sep"></span>
+        <a class="cr-wa" href="https://wa.me/8801741282813" target="_blank" rel="noopener" title="Chat on WhatsApp"><svg viewBox="0 0 24 24" width="15" height="15" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.1-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.200zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.2-.4.700-1.300.1-.2 0-.3 0-.5l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.200 5.300 5.300 0 0 0 1.100 2.800 12 12 0 0 0 4.600 4c1.700.7 2.400.8 3.200.7a2.700 2.700 0 0 0 1.800-1.300c.2-.5.2-.9.2-1.300-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp<b>+88 01741 282813</b></a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="controls">
+      <div class="panel p-search">
+        <h2><i class="pico amz"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></i>Search<i class="dot amz"></i></h2>
+        <div class="grid g2">
+          <label><span class="lt"><i class="li i-grid"></i>Category (Amazon USA, A to Z)</span>
+            <select id="category"></select>
+          </label>
+          <label><span class="lt"><i class="li i-search"></i>Optional keyword</span>
+            <input id="keyword" type="text" placeholder="e.g. candle, organizer, cable" />
+          </label>
+          <label class="speedbox"><span class="lt"><i class="li i-bolt"></i>Search speed</span>
+            <select id="speed">
+              <option value="1">Single (1 tab, safest)</option>
+              <option value="2">Normal (2 tabs, recommended)</option>
+              <option value="3" selected>Fast (3 tabs)</option>
+              <option value="4">Turbo (4 tabs, fastest)</option>
+            </select>
+            <small>More tabs = faster, but a CAPTCHA is more likely.</small>
+          </label>
+          <label><span class="lt"><i class="li i-target"></i>Number of results wanted</span>
+            <input id="target" type="number" min="1" max="50" value="20" />
+          </label>
+        </div>
+        <div class="seller-switch">
+          <span class="lt"><i class="li i-cart"></i>Amazon seller type</span>
+          <div class="seg">
+            <button type="button" id="modeAmazon" class="segbtn on"><i class="li i-cart"></i>Sold by Amazon</button>
+            <button type="button" id="modeOthers" class="segbtn"><i class="li i-users"></i>All Other Sellers in Amazon</button>
+          </div>
+          <small>"All Other Sellers" uses no seller filter, so third-party sellers are included (Amazon's search cannot exclude Amazon's own listings).</small>
+        </div>
+      </div>
+
+      <div class="panel p-filter">
+        <h2><i class="pico blue"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 6h10M18 6h2M4 12h4M12 12h8M4 18h12M20 18h0"/><circle cx="16" cy="6" r="2"/><circle cx="10" cy="12" r="2"/><circle cx="18" cy="18" r="2"/></svg></i>Filters<i class="dot blue"></i></h2>
+        <div class="grid g2">
+          <label><span class="lt"><i class="li i-trend"></i>Min NET profit (% over Amazon price)</span>
+            <input id="minProfit" type="number" min="0" max="500" value="20" />
+          </label>
+          <label><span class="lt"><i class="li i-shield"></i>Match strictness</span>
+            <select id="minMatch">
+              <option value="0.6" selected>Strict (more accurate)</option>
+              <option value="0.5">Medium</option>
+              <option value="0.4">Loose (more results)</option>
+            </select>
+          </label>
+          <label><span class="lt"><i class="li i-tag"></i>Min Amazon price ($)</span>
+            <input id="minPrice" type="number" min="0" max="500" value="5" />
+          </label>
+          <label><span class="lt"><i class="li i-tag"></i>Max Amazon price ($)</span>
+            <input id="maxPrice" type="number" min="1" max="1000" value="30" />
+          </label>
+          <label><span class="lt"><i class="li i-users"></i>Walmart sellers: minimum</span>
+            <input id="minSellers" type="number" min="1" max="50" value="3" />
+          </label>
+          <label><span class="lt"><i class="li i-users"></i>Walmart sellers: maximum</span>
+            <input id="maxSellers" type="number" min="1" max="100" value="10" />
+          </label>
+          <label class="span2"><span class="lt"><i class="li i-box"></i>Max Amazon products to check (per category)</span>
+            <input id="maxItems" type="number" min="10" max="500" value="100" />
+          </label>
+        </div>
+      </div>
+
+      <div class="panel p-cost">
+        <h2><i class="pico green"><svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18"/><path d="M17 7.5C17 5.6 14.8 4.5 12 4.5S7 5.6 7 7.5s2 2.6 5 3.5 5 1.6 5 3.5-2.2 3-5 3-5-1.1-5-3"/></svg></i>Walmart / WFS costs<i class="dot green"></i></h2>
+        <div class="grid g4">
+          <label><span class="lt"><i class="li i-percent"></i>Referral fee (%)</span>
+            <input id="referralPct" type="number" min="0" max="50" step="0.1" value="15" />
+            <small>Most categories 15%. Some differ (e.g. consumer electronics 8%).</small>
+          </label>
+          <label><span class="lt"><i class="li i-truck"></i>Inbound cost per unit ($)</span>
+            <input id="inbound" type="number" min="0" step="0.01" value="0.50" />
+            <small>Your shipping/prep cost to send stock to Walmart.</small>
+          </label>
+          <label><span class="lt"><i class="li i-scale"></i>WFS fee by weight</span>
+            <select id="tierMode">
+              <option value="auto" selected>Auto (from Walmart weight)</option>
+            </select>
+            <small>0-0.6 lb $3.45 · 0.6-2 lb $4.95 · 2-3 lb $5.45 · 3-4 lb $5.75</small>
+          </label>
+          <label id="fallbackWrap"><span class="lt"><i class="li i-help"></i>If weight is not found, assume</span>
+            <select id="fallbackTier"></select>
+            <small>Only used in Auto mode. Over 4 lb is skipped.</small>
+          </label>
+        </div>
+        <div class="toggles">
+          <label class="check">
+            <input id="lowPrice" type="checkbox" /><i class="li i-dollar"></i>
+            Add $1.00 low-price surcharge (Walmart price under $10)
+          </label>
+          <label class="check">
+            <input id="onlyWalmartSold" type="checkbox" /><i class="li i-store"></i>
+            Only items sold by Walmart
+          </label>
+        </div>
+      </div>
+    </section>
+
+    <div class="actionbar">
+      <div class="fixed">
+        <b class="ico i-shield">Fixed criteria</b>
+        <span class="chip ico i-cart">Amazon: <b id="fixedAmazon">Sold by Amazon only</b></span>
+        <span class="chip ico i-store">Walmart: <span id="fixedWalmart">Walmart itself is not a seller</span></span>
+        <span class="chip ico i-layers">Single listing</span>
+        <span class="chip ico i-users" id="fixedSellers">3 to 10 sellers</span>
+      </div>
+      <div class="buttons">
+        <button id="startNew" class="ico i-refresh" type="button" title="Reset the current scan and keep the search keyword">Reset All</button>
+        <button id="start" class="ico i-play">Start scan</button>
+        <button id="stop" class="ico i-stop" disabled>Stop</button>
+        <button id="export" class="ico i-download" disabled>Export CSV</button>
+      </div>
+    </div>
+
+    <section id="status" class="status">Ready.</section>
+    <div class="bar"><div id="barFill"></div></div>
+
+    <section id="live" class="live" hidden>
+      <div class="counters">
+        <div class="cbox amz"><i class="ci"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="20" r="1.3"/><circle cx="18" cy="20" r="1.3"/><path d="M3 4h2.5l2.2 11h10.6l2-8H6.4"/></svg></i><b id="cAmazon">0</b><span>Amazon scanned</span></div>
+        <div class="cbox wal"><i class="ci"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></i><b id="cWalmart">0</b><span>Walmart checked</span></div>
+        <div class="cbox"><i class="ci"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg></i><b id="cMatched">0</b><span>Matched</span></div>
+        <div class="cbox win"><i class="ci"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8"/><path d="M15 7h6v6"/></svg></i><b id="cProfit">0</b><span>Profitable</span></div>
+        <div class="cbox bad"><i class="ci"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg></i><b id="cDropped">0</b><span>Dropped</span></div>
+      </div>
+      <div class="feeds">
+        <div class="feedcol"><h3 class="amz">Amazon: products scanned</h3><div id="feedAmazon" class="feed"></div></div>
+        <div class="feedcol"><h3 class="wal">Walmart: products checked</h3><div id="feedWalmart" class="feed"></div></div>
+      </div>
+    </section>
+
+    <div class="tablewrap">
+      <table id="table" hidden>
+        <thead>
+          <tr>
+            <th class="ico i-image">Product</th>
+            <th class="ico i-cart">Amazon<small>cost</small></th>
+            <th class="ico i-store">Walmart<small>sell price</small></th>
+            <th class="ico i-percent">Walmart fees<small>WFS total cost</small></th>
+            <th class="ico i-trend">Net profit</th>
+            <th class="ico i-chart">Monthly sales</th>
+            <th class="ico i-list">Listing</th>
+          </tr>
+        </thead>
+        <tbody id="rows"></tbody>
+      </table>
+    </div>
+
+    <p class="note">
+      While scanning, the extension uses background tabs to open Amazon and Walmart pages. Please do not close them.
+      Net profit = Walmart price − referral fee − WFS fulfillment fee − inbound cost − Amazon price. It does not include WFS storage, returns, taxes or Amazon shipping, and prices can vary by ZIP code.
+      Very large gaps are often caused by a mismatched product (different pack size, model or condition), so always open both links and compare before buying.
+    </p>
+  </main>
+
+
+  <!-- Search history drawer -->
+  <div id="histOverlay" class="hist-overlay" hidden>
+    <aside class="hist-drawer" role="dialog" aria-modal="true" aria-labelledby="histTitle">
+      <header class="hist-head">
+        <div>
+          <h2 id="histTitle">Search history</h2>
+          <p>Last 3 days · saved on this computer · older searches are removed automatically</p>
+        </div>
+        <button type="button" id="histClose" class="hist-x" aria-label="Close history">✕</button>
+      </header>
+      <div class="hist-stats counters" id="histStats"></div>
+      <div class="hist-tools">
+        <input id="histSearch" type="text" placeholder="Search category, keyword or product..." autocomplete="off" />
+        <div class="hist-chips" id="histChips">
+          <button type="button" data-f="all" class="on">All</button>
+          <button type="button" data-f="found">With results</button>
+          <button type="button" data-f="none">No results</button>
+          <button type="button" data-f="issues">Stopped / errors</button>
+        </div>
+        <div class="hist-tbtns">
+          <button type="button" id="histExport" class="hbtn">Export history CSV</button>
+          <button type="button" id="histClear" class="hbtn danger">Clear all</button>
+        </div>
+      </div>
+      <div id="histBody" class="hist-body"></div>
+    </aside>
+  </div>
+
+  <button type="button" id="toTop" aria-label="Back to top" title="Back to top"><i class="li i-up"></i></button>
+
+  <script src="auth-config.js"></script>
+  <script src="auth.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

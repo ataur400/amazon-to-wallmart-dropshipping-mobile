@@ -1,0 +1,21 @@
+{
+  "name": "amazon-to-wallmart-product-finder-mobile",
+  "productName": "Amazon to Wallmart Product Finder",
+  "version": "1.8.1",
+  "description": "Amazon to Wallmart Product Finder Dropshipping Tool - Android edition (same app as the desktop v1.8.1)",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "prepare:www": "python3 scripts/prepare_www.py",
+    "android:add": "npx cap add android && python3 scripts/patch_android.py",
+    "android:sync": "npm run prepare:www && npx cap sync android",
+    "android:apk": "cd android && ./gradlew assembleRelease"
+  },
+  "dependencies": {
+    "@capacitor/android": "~6.2.0",
+    "@capacitor/core": "~6.2.0"
+  },
+  "devDependencies": {
+    "@capacitor/cli": "~6.2.0"
+  }
+}

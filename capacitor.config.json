@@ -1,0 +1,13 @@
+{
+  "appId": "com.amztowallmart.productfinder",
+  "appName": "Amazon to Wallmart Product Finder",
+  "webDir": "www",
+  "backgroundColor": "#ffffff",
+  "android": {
+    "allowMixedContent": false,
+    "webContentsDebuggingEnabled": false
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

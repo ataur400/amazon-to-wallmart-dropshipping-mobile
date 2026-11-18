@@ -1,0 +1,117 @@
+/* ===== Sign-in screen v1.7.4 : brand gradient, light motion ===== */
+#aw-auth-root{
+  position:fixed;inset:0;z-index:999999;isolation:isolate;
+  background:linear-gradient(125deg,#06142f 0%,#0a2a63 55%,#0b4aa8 100%);
+  color:#172033;display:flex;align-items:center;justify-content:center;
+  padding:28px 18px;font-family:"Inter","Segoe UI",system-ui,-apple-system,"Noto Sans Bengali",sans-serif;overflow:auto
+}
+#aw-auth-root::before,#aw-auth-root::after{
+  content:"";position:fixed;z-index:-1;border-radius:50%;filter:blur(70px);pointer-events:none;will-change:transform
+}
+#aw-auth-root::before{width:520px;height:520px;left:-140px;top:-160px;background:rgba(255,122,0,.5);animation:awOrb1 16s ease-in-out infinite}
+#aw-auth-root::after{width:560px;height:560px;right:-160px;bottom:-200px;background:rgba(47,140,255,.5);animation:awOrb2 19s ease-in-out infinite}
+@keyframes awOrb1{50%{transform:translate(120px,80px) scale(1.15)}}
+@keyframes awOrb2{50%{transform:translate(-110px,-70px) scale(1.12)}}
+#aw-auth-root *{box-sizing:border-box}
+.aw-auth-card{
+  position:relative;width:min(100%,468px);margin:auto;background:rgba(255,255,255,.98);
+  border:1px solid rgba(255,255,255,.6);border-radius:26px;padding:34px 36px 26px;
+  box-shadow:0 30px 70px rgba(2,10,30,.45),0 0 0 1px rgba(255,255,255,.18);
+  overflow:hidden;animation:awRise .6s cubic-bezier(.2,.8,.2,1) both
+}
+@keyframes awRise{from{transform:translateY(22px) scale(.98);opacity:0}to{transform:none;opacity:1}}
+.aw-auth-card:before{
+  content:"";position:absolute;inset:0 0 auto;height:6px;
+  background:linear-gradient(90deg,#ff7a00,#ff9f1c,#2f8cff,#0b63ce,#ff7a00);background-size:200% 100%;
+  animation:awBar 6s linear infinite
+}
+@keyframes awBar{to{background-position:200% 0}}
+.aw-auth-card h2{margin:6px 0 6px;font-size:26px;letter-spacing:-.02em;font-weight:800;color:#0a1f44}
+.aw-auth-muted{color:#667a98;font-size:14px;line-height:1.55;margin:0 0 18px}
+.aw-auth-top{position:relative;display:flex;justify-content:center;align-items:flex-start;gap:12px;margin:0 0 20px;min-height:0}
+.aw-auth-brand{width:100%;display:flex;flex-direction:column;align-items:center;text-align:center;padding:3px 42px 0}
+.aw-auth-logo-wrap{
+  width:176px;height:112px;display:flex;align-items:center;justify-content:center;
+  border-radius:24px;background:linear-gradient(145deg,#fff,#f3f6fc);
+  border:1px solid #e6ecf6;box-shadow:0 12px 28px rgba(10,31,68,.12),inset 0 1px 2px #fff;
+  margin:2px auto 14px;overflow:hidden;animation:awBob 5s ease-in-out infinite
+}
+@keyframes awBob{50%{transform:translateY(-4px)}}
+.aw-auth-logo{display:block;width:160px;height:auto;object-fit:contain}
+.aw-auth-brand-title{
+  display:flex;justify-content:center;align-items:baseline;flex-wrap:wrap;
+  font-size:29px;line-height:1.15;font-weight:800;letter-spacing:-.04em
+}
+.aw-brand-amzto{background:linear-gradient(135deg,#ff7a00,#ff9f1c);-webkit-background-clip:text;background-clip:text;color:transparent}
+.aw-brand-to{margin:0 7px;align-self:center;font-size:13px;font-weight:800;letter-spacing:.04em;color:#fff;background:linear-gradient(135deg,#ff7a00,#ff9f1c);padding:3px 10px;border-radius:999px;box-shadow:0 4px 10px rgba(255,122,0,.35)}
+.aw-brand-wallmart{background:linear-gradient(135deg,#0b63ce,#2f8cff);-webkit-background-clip:text;background-clip:text;color:transparent}
+.aw-auth-brand-sub{margin-top:5px;font-size:12px;font-weight:800;letter-spacing:.32em;color:#0b63ce;padding-left:.32em}
+.aw-auth-brand-tag{margin-top:9px;padding:4px 14px;border-radius:999px;font-size:10.5px;font-weight:800;letter-spacing:.22em;color:#b85400;background:#fff3e6;box-shadow:inset 0 0 0 1px #ffd9ad}
+.aw-auth-tagline{font-size:11.5px;letter-spacing:.2px;color:#8391a8;margin:9px 0 0}
+.aw-auth-top #aw-logout{
+  position:absolute;right:0;top:0;border:1px solid #e2e8f0;border-radius:10px;
+  padding:9px 13px;background:#f1f4f9;color:#253a59;font-weight:700;cursor:pointer
+}
+.aw-auth-card label{display:block;font-size:12.5px;font-weight:700;color:#334a68;margin:14px 0 6px}
+.aw-auth-card input{
+  width:100%;padding:13px 15px;border:1px solid #d3dcea;border-radius:12px;font:inherit;
+  font-size:14px;color:#0f1b2d;background:#fbfcfe;outline:none;
+  transition:border-color .18s,box-shadow .18s,background .18s
+}
+.aw-auth-card input:hover{border-color:#aebfdb}
+.aw-auth-card input:focus{border-color:#2f8cff;box-shadow:0 0 0 4px rgba(47,140,255,.17);background:#fff}
+.aw-auth-btn{
+  position:relative;overflow:hidden;width:100%;border:0;border-radius:13px;padding:14px 16px;
+  background:linear-gradient(135deg,#0b63ce 0%,#2f8cff 100%);color:#fff;
+  font:inherit;font-size:15px;font-weight:800;letter-spacing:.2px;cursor:pointer;margin-top:18px;
+  box-shadow:0 10px 24px rgba(11,99,206,.4);
+  transition:transform .2s cubic-bezier(.2,.8,.2,1),box-shadow .2s,filter .2s
+}
+.aw-auth-btn::after{content:"";position:absolute;top:0;bottom:0;left:0;width:45%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.4),transparent);transform:translateX(-130%) skewX(-18deg);pointer-events:none}
+.aw-auth-btn:hover::after{transform:translateX(320%) skewX(-18deg);transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.aw-auth-btn:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(11,99,206,.5)}
+.aw-auth-btn:active{transform:translateY(1px) scale(.99)}
+.aw-auth-btn:focus-visible{outline:3px solid rgba(47,140,255,.45);outline-offset:2px}
+.aw-auth-btn:disabled{opacity:.65;cursor:wait}
+.aw-auth-btn.secondary{background:#eaf2ff;color:#0a3d91;box-shadow:inset 0 0 0 1px #cfe0f8}
+.aw-auth-btn.danger{background:linear-gradient(135deg,#e5484d,#c0282f);box-shadow:0 10px 24px rgba(210,59,59,.35)}
+.aw-auth-links{display:flex;gap:12px;justify-content:center;margin-top:18px;flex-wrap:wrap}
+.aw-auth-links button{border:0;background:none;color:#0b63ce;cursor:pointer;font:inherit;font-weight:800;font-size:14px;padding:4px 8px;border-radius:8px}
+.aw-auth-links button:hover{background:#eaf2ff}
+.aw-auth-msg{font-size:13px;margin-top:14px;white-space:pre-wrap;line-height:1.5}
+.aw-auth-msg.aw-auth-error,.aw-auth-msg.aw-auth-ok{padding:10px 13px;border-radius:11px}
+.aw-auth-error{color:#a42323;background:#fdeeee}.aw-auth-ok{color:#0b7a4f;background:#e8f8f0}
+.aw-auth-hidden{display:none!important}
+.aw-admin-table{width:100%;border-collapse:collapse;font-size:12px;margin-top:12px;min-width:560px}
+.aw-admin-table th,.aw-admin-table td{padding:10px;border-bottom:1px solid #e4e9f2;text-align:left}
+.aw-admin-table th{background:linear-gradient(120deg,#07173a,#0b3a85);color:#fff}
+.aw-admin-list{max-height:45vh;overflow:auto;border-radius:12px;border:1px solid #e4e9f2}
+.aw-admin-actions{display:flex;gap:6px;flex-wrap:wrap}
+.aw-admin-actions button{padding:6px 10px;border:0;border-radius:8px;cursor:pointer;background:#eaf2ff;color:#0a3d91;font-weight:700}
+.aw-admin-actions button:hover{filter:brightness(.96)}
+.aw-auth-card > p.aw-auth-muted:last-child{font-size:12px;color:#94a3b8}
+@media(max-width:520px){
+  #aw-auth-root{padding:14px 10px;align-items:flex-start}
+  .aw-auth-card{padding:26px 21px 22px;border-radius:22px;margin:auto 0}
+  .aw-auth-logo-wrap{width:148px;height:96px}
+  .aw-auth-logo{width:137px}
+  .aw-auth-brand-title{font-size:25px}
+  .aw-auth-brand{padding-left:30px;padding-right:30px}
+  .aw-auth-card h2{font-size:23px}
+}
+@media (prefers-reduced-motion:reduce){
+  #aw-auth-root *,#aw-auth-root::before,#aw-auth-root::after{animation:none!important;transition:none!important}
+}
+
+/* v1.7.3: remember-email control */
+.aw-remember-email{display:flex!important;align-items:center;gap:9px;margin:12px 0 4px!important;font-size:13px!important;font-weight:600!important;color:#526783!important;cursor:pointer}
+.aw-remember-email{flex-direction:row!important;justify-content:flex-start}
+.aw-remember-email input{appearance:auto!important;-webkit-appearance:auto!important;width:17px!important;height:17px!important;min-width:17px;margin:0!important;padding:0!important;border-radius:4px!important;background:none!important;box-shadow:none!important;accent-color:#0b63ce;flex:0 0 auto}
+.aw-remember-email input::after{display:none!important}
+.aw-remember-email span{line-height:1.4}
+
+/* v1.8.0: version badge on the sign-in card */
+.aw-auth-ver{position:absolute;top:18px;right:18px;z-index:2;display:inline-flex;align-items:center;gap:6px;padding:5px 12px;border-radius:999px;font-size:12px;font-weight:800;letter-spacing:.05em;color:#fff;background:linear-gradient(135deg,#ff7a00,#ff9f1c);box-shadow:0 6px 16px rgba(255,122,0,.4),inset 0 1px 0 rgba(255,255,255,.45);animation:awVerPulse 3.5s ease-in-out infinite}
+.aw-auth-ver::before{content:"";width:6px;height:6px;border-radius:50%;background:#fff;opacity:.9}
+@keyframes awVerPulse{50%{box-shadow:0 6px 22px rgba(255,122,0,.65),inset 0 1px 0 rgba(255,255,255,.45)}}
+.aw-auth-top #aw-logout{top:34px}
